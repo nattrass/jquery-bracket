@@ -778,17 +778,17 @@
     return src;
   }
 
-  function countRounds(teamCount, isSingleElimination, skipGrandFinalComeback) {
-    if (isSingleElimination) {
-      return Math.log(teamCount * 2) / Math.log(2);
-    }
-    else if (skipGrandFinalComeback) {
-      return Math.max(2, (Math.log(teamCount * 2) / Math.log(2) - 1) * 2 - 1); // DE - grand finals
-    }
-    else {
-      return (Math.log(teamCount * 2) / Math.log(2) - 1) * 2 + 1; // DE + grand finals
-    }
-  }
+  // function countRounds(teamCount, isSingleElimination, skipGrandFinalComeback) {
+  //  if (isSingleElimination) {
+  //    return Math.log(teamCount * 2) / Math.log(2);
+  //  }
+  //  else if (skipGrandFinalComeback) {
+  //    return Math.max(2, (Math.log(teamCount * 2) / Math.log(2) - 1) * 2 - 1); // DE - grand finals
+  //  }
+  //  else {
+  //    return (Math.log(teamCount * 2) / Math.log(2) - 1) * 2 + 1; // DE + grand finals
+  //  }
+  // }
 
   function exportData(data) {
     const output = $.extend(true, {}, data);
@@ -884,7 +884,7 @@
         }
       });
       const tEl = $('<div class="team"></div>');
-      const nEl = $('<div class="label"></div>').appendTo(tEl);
+      const nEl = $('<div class="bracket-label"></div>').appendTo(tEl);
 
       if (round === 0) {
         tEl.attr('data-resultid', 'team-' + rId);
@@ -921,7 +921,7 @@
 
                 renderAll(true);
                 span.click(editor);
-                const labels = opts.el.find('.team[data-teamid=' + (team.idx + 1) + '] div.label:first');
+                const labels = opts.el.find('.team[data-teamid=' + (team.idx + 1) + '] div.bracket-label:first');
                 if (labels.length && next === true && round === 0) {
                   $(labels).click();
                 }
@@ -1195,14 +1195,14 @@
       lEl.css('height', wEl.height() / 2);
     }
 
-    const roundCount = countRounds(data.teams.length, isSingleElimination, opts.skipGrandFinalComeback);
+    // const roundCount = countRounds(data.teams.length, isSingleElimination, opts.skipGrandFinalComeback);
 
-    if (!opts.disableResize) {
-      topCon.css('width', roundCount * 140 + 40);
-    }
-    else {
-      topCon.css('width', roundCount * 140 + 10);
-    }
+    // if (!opts.disableResize) {
+    //  topCon.css('width', roundCount * 140 + 40);
+    // }
+    // else {
+    //  topCon.css('width', roundCount * 140 + 10);
+    // }
 
     w = mkBracket(wEl, Option.of(r[0] || null), mkMatch, true);
 

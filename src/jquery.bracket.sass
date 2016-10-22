@@ -21,6 +21,7 @@ div.jQBracket
   font-family: "Arial"
   font-size: 14px
   position: relative
+  float: left
 
   .tools
     position: absolute
@@ -56,7 +57,7 @@ div.jQBracket
 
   .round
     position: relative
-    width: 100px
+    width: 150px
     margin-right: 40px
     float: left
 
@@ -71,7 +72,7 @@ div.jQBracket
     z-index: 1
     float: left
     background-color: #EEE
-    width: 100px
+    width: 150px
     cursor: default
 
     &:first-child
@@ -84,10 +85,10 @@ div.jQBracket
       border: none
       margin: 0
 
-    div.label
+    div.bracket-label
       padding: $boxPadding
       position: absolute
-      width: 70px
+      width: 120px
       height: $boxHeight
       white-space: nowrap
       overflow: hidden
@@ -106,7 +107,7 @@ div.jQBracket
         color: #999
         cursor: default
 
-    div.label input.error,
+    div.bracket-label input.error,
     div.score input.error
       background-color: #FCC
 
@@ -255,7 +256,7 @@ div.jQBracket.rl
   .team
     float: right
 
-    div.label
+    div.bracket-label
       right: 0
 
     div.score
