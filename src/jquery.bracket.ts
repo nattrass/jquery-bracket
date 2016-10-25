@@ -878,7 +878,7 @@
         if (type === BranchType.BYE) {
           return 'BYE';
         } else if (type === BranchType.TBD) {
-          return 'TBD';
+          return '';
         } else {
           throw new Error(`Unexpected branch type ${type}`);
         }
@@ -896,7 +896,7 @@
         tEl.attr('data-teamid', team.idx);
       }
 
-      if (team.name.isEmpty()) {
+      if (team.name.isEmpty() && team.emptyBranch() !== BranchType.TBD) {
         tEl.addClass('na');
       }
       else if (match.winner().name === team.name) {
