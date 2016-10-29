@@ -266,19 +266,19 @@
       }
     }
 
-    container.find('.team').mouseover(function() {
-      const i = parseInt($(this).attr('data-teamid'), 10);
-      // Don't highlight BYEs
-      if (i === -1) {
-        return;
-      }
-      const track = trackHighlighter(i, null, container);
-      track.highlight();
-      $(this).mouseout(function() {
-        track.deHighlight();
-        $(this).unbind('mouseout');
-      });
-    });
+    // container.find('.team').mouseover(function() {
+    //  const i = parseInt($(this).attr('data-teamid'), 10);
+    //  // Don't highlight BYEs
+    //  if (i === -1) {
+    //    return;
+    //  }
+    //  const track = trackHighlighter(i, null, container);
+    //  track.highlight();
+    //  $(this).mouseout(function() {
+    //    track.deHighlight();
+    //    $(this).unbind('mouseout');
+    //  });
+    // });
   }
 
   function defaultEdit(span: JQuery, data: any, done: DoneCallback): void {
@@ -1052,32 +1052,32 @@
 
           if (!cb || cb === null) {
             if (idx % 2 === 0) { // dir == down
-              if (this.winner().id === 0) {
-                shift = connectorOffset;
-                height = matchupOffset;
-              }
-              else if (this.winner().id === 1) {
-                shift = connectorOffset * 3;
-                height = matchupOffset - connectorOffset * 2;
-              }
-              else {
+              // if (this.winner().id === 0) {
+              //  shift = connectorOffset;
+              //  height = matchupOffset;
+              // }
+              // else if (this.winner().id === 1) {
+              //  shift = connectorOffset * 3;
+              //  height = matchupOffset - connectorOffset * 2;
+              // }
+              // else {
                 shift = connectorOffset * 2;
                 height = matchupOffset - connectorOffset;
-              }
+              // }
             }
             else { // dir == up
-              if (this.winner().id === 0) {
-                shift = -connectorOffset * 3;
-                height = -matchupOffset + connectorOffset * 2;
-              }
-              else if (this.winner().id === 1) {
-                shift = -connectorOffset;
-                height = -matchupOffset;
-              }
-              else {
+            //  if (this.winner().id === 0) {
+            //    shift = -connectorOffset * 3;
+            //    height = -matchupOffset + connectorOffset * 2;
+            //  }
+            //  else if (this.winner().id === 1) {
+            //    shift = -connectorOffset;
+            //    height = -matchupOffset;
+            //  }
+            //  else {
                 shift = -connectorOffset * 2;
                 height = -matchupOffset + connectorOffset;
-              }
+              // }
             }
           }
           else {
