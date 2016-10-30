@@ -62,6 +62,14 @@ div.jQBracket
   .match
     position: relative
 
+    div.bracket-fixture
+      float: left
+      width: 24px
+      height: 47px
+      background-color: #CCC
+      padding-top: 12px
+      text-align: center
+
   .editable
     cursor: pointer
 
@@ -70,8 +78,12 @@ div.jQBracket
     z-index: 1
     float: left
     background-color: #EEE
-    width: 150px
+    width: 125px
     cursor: default
+    box-sizing: content-box
+    -webkit-box-sizing: content-box
+    -moz-box-sizing: content-box
+    border-bottom: 1px solid #ccc;
 
     &:first-child
       border-bottom: 1px solid #999
@@ -86,10 +98,13 @@ div.jQBracket
     div.bracket-label
       padding: $boxPadding
       position: absolute
-      width: 120px
+      width: 95px
       height: $boxHeight
       white-space: nowrap
       overflow: hidden
+      box-sizing: content-box
+      -webkit-box-sizing: content-box
+      -moz-box-sizing: content-box
 
       &[disabled]
         cursor: default
@@ -153,6 +168,10 @@ div.jQBracket
     z-index: 1
     position: relative
     float: left
+    box-sizing: content-box
+    -webkit-box-sizing: content-box
+    -moz-box-sizing: content-box
+    width: 150px
 
   .connector
     border: 2px solid $connectorColor

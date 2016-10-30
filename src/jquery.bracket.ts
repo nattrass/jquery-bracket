@@ -1001,6 +1001,7 @@
                      isFirstBracket: boolean): Match {
       const matchCon = $('<div class="match"></div>');
       const teamCon: JQuery = $('<div class="teamContainer"></div>');
+      const fixtureCon: JQuery = $('<div class="bracket-fixture"></div>');
 
       var connectorCb: ConnectorProvider | null = null;
       var alignCb: ((JQuery) => void) | null = null;
@@ -1125,6 +1126,7 @@
           // Coerce truthy/falsy "isset()" for Typescript
           const isReady = !match.a.name.isEmpty() && !match.b.name.isEmpty();
 
+          teamCon.append(fixtureCon);
           teamCon.append(teamElement(round.id, match, match.a, match.b, isReady, isFirstBracket));
           teamCon.append(teamElement(round.id, match, match.b, match.a, isReady, isFirstBracket));
 
