@@ -866,23 +866,21 @@
                          isFirstBracket: boolean) {
       const rId = resultIdentifier;
       const sEl = $('<div class="score" data-resultid="result-' + rId + '"></div>');
-      const score = (team.name.isEmpty() || opponent.name.isEmpty() || !isReady)
-          ? '--'
-          : (team.score === null || !isNumber(team.score) ? '--' : team.score);
+      const score = '--';
       sEl.text(score);
 
       resultIdentifier += 1;
 
-      const name = team.name.orElseGet(() => {
-        const type = team.emptyBranch();
-        if (type === BranchType.BYE) {
-          return 'BYE';
-        } else if (type === BranchType.TBD) {
-          return '';
-        } else {
-          throw new Error(`Unexpected branch type ${type}`);
-        }
-      });
+      // const name = team.name.orElseGet(() => {
+      //  const type = team.emptyBranch();
+      //  if (type === BranchType.BYE) {
+      //    return 'BYE';
+      //  } else if (type === BranchType.TBD) {
+      //    return '';
+      //  } else {
+      //    throw new Error(`Unexpected branch type ${type}`);
+      //  }
+      // });
       const tEl = $('<div class="team"></div>');
       const nEl = $('<div class="bracket-label"></div>').appendTo(tEl);
 
@@ -890,21 +888,21 @@
         tEl.attr('data-resultid', 'team-' + rId);
       }
 
-      opts.decorator.render(nEl, name, score);
+      // opts.decorator.render(nEl, name, score);
 
       if (isNumber(team.idx)) {
         tEl.attr('data-teamid', team.idx);
       }
 
-      if (team.name.isEmpty() && team.emptyBranch() !== BranchType.TBD) {
-        tEl.addClass('na');
-      }
-      else if (match.winner().name === team.name) {
-        tEl.addClass('win');
-      }
-      else if (match.loser().name === team.name) {
-        tEl.addClass('lose');
-      }
+       // if (team.name.isEmpty() && team.emptyBranch() !== BranchType.TBD) {
+       // tEl.addClass('na');
+       // }
+       // else if (match.winner().name === team.name) {
+       // tEl.addClass('win');
+       // }
+       // else if (match.loser().name === team.name) {
+       // tEl.addClass('lose');
+       // }
 
       tEl.append(sEl);
 
