@@ -739,8 +739,9 @@
     // [team]_/
     if (height < 0) {
       drop = false;
-      height = -height;
+      height = -height - 10;
     }
+
     /* straight lines are prettier */
     if (height < 2) {
       height = 0;
@@ -765,30 +766,20 @@
       src.css('border-top', 'none');
     }
 
-    const dst = $('<div class="connector"></div>').appendTo(src);
-    dst.css('width', width + 'px');
-    dst.css(align, -width + 'px');
     if (drop) {
-      dst.css('bottom', '0px');
-    }
-    else {
-      dst.css('top', '0px');
+        const dst = $('<div class="connector"></div>').appendTo(src);
+        dst.css('width', width + 'px');
+        dst.css(align, -width + 'px');
+        if (drop) {
+            dst.css('bottom', '0px');
+        }
+        else {
+            dst.css('top', '0px');
+        }
     }
 
     return src;
   }
-
-  // function countRounds(teamCount, isSingleElimination, skipGrandFinalComeback) {
-  //  if (isSingleElimination) {
-  //    return Math.log(teamCount * 2) / Math.log(2);
-  //  }
-  //  else if (skipGrandFinalComeback) {
-  //    return Math.max(2, (Math.log(teamCount * 2) / Math.log(2) - 1) * 2 - 1); // DE - grand finals
-  //  }
-  //  else {
-  //    return (Math.log(teamCount * 2) / Math.log(2) - 1) * 2 + 1; // DE + grand finals
-  //  }
-  // }
 
   function exportData(data) {
     const output = $.extend(true, {}, data);
@@ -871,16 +862,6 @@
 
       resultIdentifier += 1;
 
-      // const name = team.name.orElseGet(() => {
-      //  const type = team.emptyBranch();
-      //  if (type === BranchType.BYE) {
-      //    return 'BYE';
-      //  } else if (type === BranchType.TBD) {
-      //    return '';
-      //  } else {
-      //    throw new Error(`Unexpected branch type ${type}`);
-      //  }
-      // });
       const tEl = $('<div class="team"></div>');
       const nEl = $('<div class="bracket-label"></div>').appendTo(tEl);
 
@@ -888,21 +869,9 @@
         tEl.attr('data-resultid', 'team-' + rId);
       }
 
-      // opts.decorator.render(nEl, name, score);
-
       if (isNumber(team.idx)) {
         tEl.attr('data-teamid', team.idx);
       }
-
-       // if (team.name.isEmpty() && team.emptyBranch() !== BranchType.TBD) {
-       // tEl.addClass('na');
-       // }
-       // else if (match.winner().name === team.name) {
-       // tEl.addClass('win');
-       // }
-       // else if (match.loser().name === team.name) {
-       // tEl.addClass('lose');
-       // }
 
       tEl.append(sEl);
 
@@ -1061,7 +1030,7 @@
               // }
               // else {
                 shift = connectorOffset * 2;
-                height = matchupOffset - connectorOffset;
+                height = matchupOffset - connectorOffset + 12;
               // }
             }
             else { // dir == up
@@ -1075,7 +1044,7 @@
             //  }
             //  else {
                 shift = -connectorOffset * 2;
-                height = -matchupOffset + connectorOffset;
+                height = -matchupOffset + connectorOffset - 23;
               // }
             }
           }
