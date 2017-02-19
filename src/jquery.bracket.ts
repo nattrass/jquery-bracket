@@ -1243,7 +1243,7 @@
   }
 
   // Math.log2() mot supported in IEE or old browsers
-  const log2 = (x) => Math.log(x) * Math.LOG2E;
+  const log2 = (x) => Math.log(x) / Math.log(2);
 
   const methods = {
     init(originalOpts: Options) {
